@@ -24,3 +24,6 @@
 
 #ignore images uploads
 /public/images/*
+/public/packs
+/public/packs-test
+/node_modules

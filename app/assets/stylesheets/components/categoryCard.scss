@@ -1,0 +1,27 @@
+.category__card {
+  width: 280px;
+  height: 80px;
+  border-radius: 3px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+}
+
+.category__cardLeft {
+  width: 80px;
+  height: 80px;
+  background-color: #494fec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.category__cardRight {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1f1f1f;
+}

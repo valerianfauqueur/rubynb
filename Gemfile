@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'paperclip'
 gem 'money-rails'
+gem 'webpacker'
+gem 'react-rails'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

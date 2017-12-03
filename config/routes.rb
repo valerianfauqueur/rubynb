@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
+  root 'home#index'
+
   get '/games/:game_id/announcements', to: 'announcements#create', as: :create_game_announcement, method: :post
 end

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Partajouer</title>
+    <%= javascript_pack_tag 'application' %>
+  </head>
+  <body>
+    <header class="header"></header>
+    <section class="content">
+      <section class="introduction">
+        <div class="introduction__content">
+          <h2 class="introduction__title">Partajouer</h2>
+          <h3 class="introduction__desc">Réservez le jeu qui occupera votre<br> soirée dès maintenant.</h3>
+          <div class="introduction__search">
+            <input class="introduction__searchInput" type="text" placeholder="Essayez « 1000 bornes »">
+            <input class="introduction__searchBtn" type="button" value="Rechercher">
+          </div>
+        </div>
+      </section>
+
+      <section class="category">
+        <div class="category__header">
+          <h2 class="category__title title">Catégories</h2>
+        </div>
+        <div class="category__cards">
+          <% 4.times do |categoryCard| %>
+            <%= react_component("CategoryCard") %>
+          <% end %>
+        </div>
+      </section>
+
+      <section class="announcements">
+        <section class="announcements__category">
+          <div class="announcements__categoryHeader">
+            <h2 class="announcements__categoryTitle title">Proche de chez vous</h2>
+          </div>
+          <div class="announcements__categoryContent">
+            <% 5.times do |announcements| %>
+              <%= react_component("AnnouncementCard") %>
+            <% end %>
+          </div>
+        </section>
+
+      </section>
+    </section>
+  </body>
+</html>

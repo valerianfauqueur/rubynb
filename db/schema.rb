@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20171126175438) do
     t.integer "max_reservation"
     t.integer "renting_price"
     t.integer "caution_price"
+    t.string "status", default: "DRAFT"
     t.index ["game_id"], name: "index_announcements_on_game_id"
   end
 
@@ -47,9 +48,12 @@ ActiveRecord::Schema.define(version: 20171126175438) do
   end
 
   create_table "pictures", force: :cascade do |t|
-    t.string "image"
-    t.integer "announcement_id"
-    t.index ["announcement_id"], name: "index_pictures_on_announcement_id"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer "game_id"
+    t.index ["game_id"], name: "index_pictures_on_game_id"
   end
 
   create_table "reservations", force: :cascade do |t|

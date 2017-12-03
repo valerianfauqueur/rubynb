@@ -5,7 +5,12 @@ Rails.application.routes.draw do
                       sign_out: 'logout',
                       edit: 'profile'
                    }
-  root 'welcome#index'
-  resources :announcements
-  resources :games
+
+  authenticate :user do
+    resources :games do
+      resources :announcements
+    end
+  end
+
+  get '/games/:game_id/announcements', to: 'announcements#create', as: :create_game_announcement, method: :post
 end

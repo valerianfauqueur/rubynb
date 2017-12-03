@@ -12,9 +12,9 @@
   <tbody>
     <% @announcements.each do |announcement| %>
       <tr>
-        <td><%= link_to 'Show', announcement %></td>
-        <td><%= link_to 'Edit', edit_announcement_path(announcement) %></td>
-        <td><%= link_to 'Destroy', announcement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', game_announcement_path(announcement.game_id, announcement) %></td>
+        <td><%= link_to 'Edit', game_announcement_path(announcement.game_id, announcement) %></td>
+        <td><%= link_to 'Destroy', game_announcement_path(announcement.game_id, announcement), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Announcement', new_announcement_path %>
+<%= link_to 'New Announcement', new_game_announcement_path %>

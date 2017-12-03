@@ -25,9 +25,13 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.new(game_params)
-
     respond_to do |format|
       if @game.save
+        if params[:pictures]
+          params[:pictures].each do |image|
+            @game.pictures.create(image: image)
+          end
+        end
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
         format.json { render :show, status: :created, location: @game }
       else
@@ -69,6 +73,8 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.fetch(:game, {})
+      params.require(:game).permit(:name, :min_players, :max_players, :min_age, :max_age, :status, :rentable, :pictures)
+      .merge(user_id: current_user.id)
     end
+
 end

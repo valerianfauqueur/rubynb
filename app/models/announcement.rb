@@ -9,7 +9,7 @@ class Announcement < ApplicationRecord
     :greater_than_or_equal_to => 1,
   }
 
-  validates :title, :description, :renting_price, :caution_price, presence: true
+  validates :title, :description, :renting, :caution, presence: true
   validates_length_of :title, :minimum => 4, :maximum => 140
   validates_length_of :description, :maximum => 5000
 end

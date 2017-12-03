@@ -8,6 +8,7 @@ class CreateAnnouncements < ActiveRecord::Migration[5.1]
       t.integer :max_reservation
       t.integer :renting_price
       t.integer :caution_price
+      t.string :status, :default => "DRAFT"
     end
   end
 end

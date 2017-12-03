@@ -25,10 +25,10 @@ class AnnouncementsController < ApplicationController
   # POST /announcements.json
   def create
     @announcement = Announcement.new(announcement_params)
-
+    @announcement.game_id = params[:game_id]
     respond_to do |format|
       if @announcement.save
-        format.html { redirect_to @announcement, notice: 'Announcement was successfully created.' }
+        format.html { redirect_to game_announcement_url(params[:game_id], @announcement), notice: 'Announcement was successfully created.' }
         format.json { render :show, status: :created, location: @announcement }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AnnouncementsController < ApplicationController
   def update
     respond_to do |format|
       if @announcement.update(announcement_params)
-        format.html { redirect_to @announcement, notice: 'Announcement was successfully updated.' }
+        format.html { redirect_to game_announcement_url(params[:game_id], @announcement), notice: 'Announcement was successfully updated.' }
         format.json { render :show, status: :ok, location: @announcement }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class AnnouncementsController < ApplicationController
   def destroy
     @announcement.destroy
     respond_to do |format|
-      format.html { redirect_to announcements_url, notice: 'Announcement was successfully destroyed.' }
+      format.html { redirect_to game_announcements_url, notice: 'Announcement was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class AnnouncementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def announcement_params
-      params.fetch(:announcement, {})
+      params.require(:announcement).permit(:title, :description, :renting, :caution, :min_reservation, :max_reservation)
     end
 end

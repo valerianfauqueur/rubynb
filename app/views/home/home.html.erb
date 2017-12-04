@@ -6,7 +6,7 @@
     <%= javascript_pack_tag 'application' %>
   </head>
   <body>
-    <header class="header"></header>
+    <%= react_component("CustomMenu") %>
     <section class="content">
       <section class="introduction">
         <div class="introduction__content">
@@ -36,10 +36,20 @@
             <h2 class="announcements__categoryTitle title">Proche de chez vous</h2>
           </div>
           <div class="announcements__categoryContent">
-            <% 5.times do |announcements| %>
+            <% 7.times do |announcements| %>
               <%= react_component("AnnouncementCard") %>
             <% end %>
           </div>
+
+          <section class="announcements__category">
+            <div class="announcements__categoryHeader">
+              <h2 class="announcements__categoryTitle title">Proche de chez vous</h2>
+            </div>
+            <div class="announcements__categoryContent">
+              <% 8.times do |announcements| %>
+                <%= react_component("AnnouncementCard") %>
+              <% end %>
+            </div>
         </section>
 
       </section>

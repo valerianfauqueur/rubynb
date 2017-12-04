@@ -1,0 +1,22 @@
+.menu {
+  background-color: #fbfbfb;
+  height: 100px;
+  box-shadow: 0 15px 25px 0 rgba(0, 0, 0, 0.05);
+}
+
+.menu__nav {
+  height: 100%;
+  width: 100%;
+}
+
+.menu__navContainer {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.menu__navItem {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}

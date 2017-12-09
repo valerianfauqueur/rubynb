@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'home#index'
+
   devise_for :users, path: 'auth',
                    path_names: {
                       sign_in: 'login',
@@ -11,8 +13,6 @@ Rails.application.routes.draw do
       resources :announcements
     end
   end
-
-  root 'home#index'
 
   get '/games/:game_id/announcements', to: 'announcements#create', as: :create_game_announcement, method: :post
 end

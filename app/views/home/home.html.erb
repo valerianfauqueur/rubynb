@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Partajouer</title>
     <%= javascript_pack_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,700" rel="stylesheet">
   </head>
   <body>
     <%= react_component("CustomMenu") %>
@@ -24,9 +25,10 @@
           <h2 class="category__title title">Catégories</h2>
         </div>
         <div class="category__cards">
-          <% 4.times do |categoryCard| %>
-            <%= react_component("CategoryCard") %>
-          <% end %>
+            <%= react_component("CategoryCard", {categoryTitle:"Jeux de cartes", categoryImg: image_path("cartes.svg")}) %>
+            <%= react_component("CategoryCard", {categoryTitle:"Jeux de plateau", categoryImg: image_path("plateau.svg")}) %>
+            <%= react_component("CategoryCard", {categoryTitle:"Jeux de dès", categoryImg: image_path("des.svg")}) %>
+            <%= react_component("CategoryCard", {categoryTitle:"Jeux en plein air", categoryImg: image_path("plein_air.svg")}) %>
         </div>
       </section>
 
@@ -50,9 +52,11 @@
                 <%= react_component("AnnouncementCard") %>
               <% end %>
             </div>
+          </section>
         </section>
-
       </section>
     </section>
+
+    <%= react_component("Footer", {rs: [image_path("facebook.svg"), image_path("twitter.svg"), image_path("instagram.svg"), image_path("youtube.svg")]}) %>
   </body>
 </html>

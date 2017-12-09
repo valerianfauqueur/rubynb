@@ -13,10 +13,26 @@
   display: flex;
   height: 100%;
   width: 100%;
+  justify-content: flex-start;
 }
 
 .menu__navItem {
   height: 100%;
   display: flex;
   align-items: center;
+  margin-right: 50px;
+
+  &:first-child {
+    margin-left: 100px;
+  }
+
+  &:last-child {
+    margin-left: 0px;
+    margin-right: 100px;
+  }
+}
+
+.menu__navItem--end {
+  margin-left: auto;
+  margin-right: 30px;
 }

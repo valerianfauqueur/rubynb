@@ -5,14 +5,19 @@ class CategoryCard extends React.Component {
     return (
       <div className="category__card">
         <div className="category__cardLeft">
-          <div className="category__cardIcon">H</div>
+          <img className="category__cardIcon" src={this.props.categoryImg} />
         </div>
         <div className="category__cardRight">
-          <h4 className="cateogory__cardTitle">Jeux de cartes</h4>
+          <h4 className="cateogory__cardTitle">{this.props.categoryTitle}</h4>
         </div>
       </div>
     )
   }
 }
+
+CategoryCard.propTypes = {
+  categoryTitle: PropTypes.string,
+  categoryImg: PropTypes.string
+};
 
 export default CategoryCard

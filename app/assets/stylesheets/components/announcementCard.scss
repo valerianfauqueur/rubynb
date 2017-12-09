@@ -12,6 +12,8 @@
   width: 280px;
   height: 180px;
   background-color: #e0e0e0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 
 .announcement__cardContent {
@@ -19,21 +21,21 @@
   flex-direction: column;
   padding-left:20px;
   padding-right: 20px;
-  font-family: WorkSans;
+  font-family: 'Work Sans';
 }
 
 .announcement__meta {
   font-size: 0.8rem;
   font-weight: bold;
   margin-top: 10px;
-  color: #1f1f1f;
+  color: $textColor;
 }
 
 .announcement__title {
   font-size: 1.25rem;
   font-weight: bold;
   line-height: 1.05;
-  color: #1f1f1f;
+  color: $textColor;
   margin-top: 20px;
 }
 
@@ -51,9 +53,7 @@
 }
 
 .announcement__rating {
-
 }
 
 .announcement__author {
-
 }

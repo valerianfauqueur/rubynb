@@ -1,0 +1,27 @@
+.form__page {
+  width:100%;
+  height: 100vh;
+  background-color: $accentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__container {
+  width: 33.33%;
+}
+
+.formStyle {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  justify-content: center;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  align-items: center;
+
+  .form__margin {
+    margin-top: 20px;
+  }
+}

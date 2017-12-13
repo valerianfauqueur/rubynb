@@ -26,9 +26,13 @@
     margin-left: 100px;
   }
 
-  &:last-child {
+  &--last {
     margin-left: 0px;
     margin-right: 100px;
+  }
+
+  &--logged {
+    margin-left: auto;
   }
 }
 

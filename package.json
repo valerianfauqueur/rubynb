@@ -5,11 +5,13 @@
     "@rails/webpacker": "^3.0.2",
     "babel-preset-react": "^6.24.1",
     "coffeescript": "1.12.7",
+    "jquery": "^3.2.1",
     "material-ui": "^0.20.0",
     "material-ui-search-bar": "^0.4.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-material-ui-form-validator": "^1.0.4",
     "react-twemoji": "0.0.8",
     "react_ujs": "^2.4.3"
   },

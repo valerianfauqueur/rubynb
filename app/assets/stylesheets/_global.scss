@@ -1,3 +1,6 @@
+$accentColor: #494fec;
+$textColor: #1f1f1f;
+
 img.emoji {
    height: 1em;
    width: 1em;
@@ -5,5 +8,15 @@ img.emoji {
    vertical-align: -0.1em;
 }
 
-$accentColor: #494fec;
-$textColor: #1f1f1f;
+.logo {
+  display: flex;
+  font-size: 3rem;
+  color: $accentColor;
+  font-family: "Work Sans";
+  font-weight: bold;
+  margin-left: -57px;
+
+  svg {
+    margin-right: 15px;
+  }
+}

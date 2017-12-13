@@ -6,7 +6,9 @@ import Avatar from 'material-ui/Avatar';
 import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
-import SearchBar from 'material-ui-search-bar'
+import SearchBar from 'material-ui-search-bar';
+import Twemoji from 'react-twemoji';
+import PartajouerTheme from '../PartajouerTheme';
 
 
 class CustomMenu extends React.Component {
@@ -23,7 +25,6 @@ class CustomMenu extends React.Component {
 
     this.setState({
       open: true,
-      state: 'offline',
       anchorEl: event.currentTarget,
     });
   };
@@ -34,9 +35,32 @@ class CustomMenu extends React.Component {
     });
   };
 
+  loggedInMenu = () => {
+      return (
+        <li className="menu__navItem menu__navItem--logged menu__navItem--last">
+          <FlatButton
+            onClick={this.handleClick}
+            label={this.props.user.first_name + ' ' + this.props.user.last_name}
+          />
+          <Popover
+            open={this.state.open}
+            anchorEl={this.state.anchorEl}
+            anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+            targetOrigin={{horizontal: 'left', vertical: 'top'}}
+            onRequestClose={this.handleRequestClose}
+          >
+            <Menu>
+              <MenuItem containerElement={<a href={this.props.links.editProfile}></a>} primaryText={<Twemoji>👤 Profile</Twemoji>} />
+              <MenuItem containerElement={<a href={this.props.links.logout} data-method="delete"></a>} primaryText="Se déconnecter" />
+            </Menu>
+          </Popover>
+        </li>
+      );
+  }
+
   render () {
     return(
-      <MuiThemeProvider>
+      <MuiThemeProvider muiTheme={PartajouerTheme}>
         <header className="menu">
           <nav className="menu__nav">
             <ul className="menu__navContainer">
@@ -53,8 +77,9 @@ class CustomMenu extends React.Component {
                   }}
                 />
               </li>
-              <li className="menu__navItem menu__navItem--end">inscription</li>
-              <li className="menu__navItem">connexion</li>
+              { this.props.isLoggedIn && this.loggedInMenu() }
+              { !this.props.isLoggedIn && <li className="menu__navItem menu__navItem--end"><a href={this.props.links.signup}>inscription</a></li> }
+              { !this.props.isLoggedIn && <li className="menu__navItem menu__navItem--last"><a href={this.props.links.login}>connexion</a></li> }
             </ul>
           </nav>
         </header>
@@ -62,5 +87,11 @@ class CustomMenu extends React.Component {
     );
   }
 }
+
+CustomMenu.propTypes = {
+  isLoggedIn: PropTypes.bool,
+  links: PropTypes.object,
+  user: PropTypes.object,
+};
 
 export default CustomMenu

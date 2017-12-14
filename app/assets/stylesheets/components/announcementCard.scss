@@ -13,6 +13,10 @@
     transform: translateY(-10px);
     box-shadow: 0 15px 60px 0 rgba(0, 0, 0, 0.08);
   }
+
+  &:hover .announcement__title {
+    color: $accentColor;
+  }
 }
 
 .announcement__cardPicture {
@@ -44,6 +48,7 @@
   line-height: 1.05;
   color: $textColor;
   margin-top: 20px;
+  transition: color 0.2s ease-in-out;
 }
 
 .announcement__rentingPrice {

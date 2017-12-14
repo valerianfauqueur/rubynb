@@ -16,6 +16,16 @@
   justify-content: center;
 }
 
+.create__page {
+  height: 100vh;
+  background-color: $accentColor;
+  display: flex;
+
+  .form_page {
+    flex: auto auto auto;
+  }
+}
+
 .form__container {
   width: 33.33%;
 }

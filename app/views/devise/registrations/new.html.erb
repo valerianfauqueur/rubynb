@@ -1,7 +1,9 @@
-<div class="form__page">
-  <div class="form__container">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= react_component("AccountForm", {actionUrl: registration_path(resource_name), modifying: false}) %>
-    <% end %>
+<div class="create__page">
+  <div class="form__page">
+    <div class="form__container">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= react_component("AccountForm", {actionUrl: registration_path(resource_name), modifying: false}) %>
+      <% end %>
+    </div>
   </div>
 </div>

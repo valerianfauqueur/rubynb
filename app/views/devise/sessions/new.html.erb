@@ -1,9 +1,9 @@
-<div class="form__page">
-  <div class="form__container">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= react_component("LoginForm", {actionUrl: session_path(resource_name)}) %>
-    <% end %>
+<div class="create__page">
+  <div class="form__page">
+    <div class="form__container">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= react_component("LoginForm", {actionUrl: session_path(resource_name)}) %>
+      <% end %>
+    </div>
   </div>
 </div>
-
-<%= render "devise/shared/links" %>

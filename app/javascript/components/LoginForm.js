@@ -1,8 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { ValidatorForm } from 'react-form-validator-core';
-import { TextValidator} from 'react-material-ui-form-validator';
+import TextField from 'material-ui/TextField';
 import Checkbox from 'material-ui/Checkbox'
 import PartajouerTheme from '../PartajouerTheme';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -55,7 +54,7 @@ class LoginForm extends React.Component {
               autoHideDuration={3000}
               bodyStyle={{ backgroundColor: '#DC143C', color: 'white' }}
             />
-            <ValidatorForm
+            <form
               onSubmit={this.handleSubmit}
             >
             <div className="formStyle">
@@ -64,7 +63,7 @@ class LoginForm extends React.Component {
               </svg>
               <h2>Partajouer</h2>
               </div>
-              <TextValidator
+              <TextField
                 hintText="pierre.duchemin@gmail.com"
                 floatingLabelText="Email"
                 type="text"
@@ -72,10 +71,8 @@ class LoginForm extends React.Component {
                 value={this.state.email}
                 name="email"
                 style={{width:'80%'}}
-                validators={['required', 'isEmail']}
-                errorMessages={['Ce champ est requis', "L'adresse email n'est pas valide"]}
               />
-              <TextValidator
+              <TextField
                 hintText="Entrez votre mot de passe"
                 floatingLabelText="Mot de passe"
                 type="password"
@@ -83,7 +80,6 @@ class LoginForm extends React.Component {
                 value={this.state.password}
                 name="password"
                 validators={['required']}
-                errorMessages={['Ce champ est requis']}
                 style={{width:'80%'}}
               />
               <Checkbox
@@ -100,7 +96,7 @@ class LoginForm extends React.Component {
                 style={{marginTop:'20px'}}
                 />
             </div>
-          </ValidatorForm>
+          </form>
         </div>
       </MuiThemeProvider>
     );

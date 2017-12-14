@@ -1,7 +1,16 @@
-.form__page {
-  width:100%;
+.edit__page {
   height: 100vh;
   background-color: $accentColor;
+  display: flex;
+  flex-direction: column;
+
+  .menu {
+    flex: 0 1 100px;
+  }
+}
+
+.form__page {
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -40,7 +40,18 @@ class CustomMenu extends React.Component {
         <li className="menu__navItem menu__navItem--logged menu__navItem--last">
           <FlatButton
             onClick={this.handleClick}
-            label={this.props.user.first_name + ' ' + this.props.user.last_name}
+            style={{height: '100%'}}
+            label={
+              <span>
+                <span class="menu__navProfile">{this.props.user.first_name + ' ' + this.props.user.last_name}</span>
+                <Avatar
+                  size={48}
+                  style={{
+                    borderRadius: '3px'
+                  }}
+                >A</Avatar>
+              </span>
+            }
           />
           <Popover
             open={this.state.open}

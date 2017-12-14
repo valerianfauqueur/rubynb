@@ -40,7 +40,7 @@ class CustomMenu extends React.Component {
         <li className="menu__navItem menu__navItem--logged menu__navItem--last">
           <FlatButton
             onClick={this.handleClick}
-            style={{height: '100%'}}
+            style={{height: '100%', lineHeight: '100px'}}
             label={
               <span>
                 <span class="menu__navProfile">{this.props.user.first_name + ' ' + this.props.user.last_name}</span>

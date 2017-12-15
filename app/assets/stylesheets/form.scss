@@ -1,0 +1,46 @@
+.edit__page {
+  height: 100vh;
+  background-color: $accentColor;
+  display: flex;
+  flex-direction: column;
+
+  .menu {
+    flex: 0 1 100px;
+  }
+}
+
+.form__page {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create__page {
+  height: 100vh;
+  background-color: $accentColor;
+  display: flex;
+
+  .form_page {
+    flex: auto auto auto;
+  }
+}
+
+.form__container {
+  width: 33.33%;
+}
+
+.formStyle {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  justify-content: center;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  align-items: center;
+
+  .form__margin {
+    margin-top: 20px;
+  }
+}

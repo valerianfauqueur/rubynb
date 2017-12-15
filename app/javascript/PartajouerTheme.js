@@ -6,6 +6,7 @@ const PartajouerTheme = getMuiTheme({
   fontFamily: 'Work Sans',
   palette: {
     textColor: '#1f1f1f',
+    primary1Color: '#494fec',
     accent1Color: '#494fec',
   },
 });

@@ -7,7 +7,17 @@
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,700" rel="stylesheet">
   </head>
   <body>
-    <%= react_component("CustomMenu") %>
+        <%= react_component("CustomMenu", {
+            isLoggedIn: user_signed_in?,
+            user: current_user,
+            links: {
+              'signup': url_for(new_user_registration_path),
+              'login': url_for(new_user_session_path),
+              'logout': url_for(destroy_user_session_path),
+              'editProfile': url_for(edit_user_registration_path)
+            }
+          })
+        %>
     <section class="content">
       <section class="introduction">
         <div class="introduction__content">

@@ -26,13 +26,21 @@
     margin-left: 100px;
   }
 
-  &:last-child {
+  &--last {
     margin-left: 0px;
     margin-right: 100px;
+  }
+
+  &--logged {
+    margin-left: auto;
   }
 }
 
 .menu__navItem--end {
   margin-left: auto;
   margin-right: 30px;
+}
+
+.menu__navProfile {
+  margin-right: 10px;
 }

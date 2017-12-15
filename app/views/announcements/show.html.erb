@@ -1,4 +1,197 @@
-<p id="notice"><%= notice %></p>
+<%= react_component("CustomMenu") %>
+<div class="container_global">
+  <div class="container_announcement">
+    <div class="announcement_headline">
+        <div class="announcement_headlineLeft">
+          <svg  class="announcement_headlineIcon" fill="#fff" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><title>cartes</title><path d="M96.12.37V499.63H403.88V.37Zm56.6,460.22a7.49,7.49,0,0,1-1.47,1.47l-12.5,12.38-12.56-12.2a7.66,7.66,0,0,1-1.47-1.47,7.84,7.84,0,1,1,14-4.78,7.84,7.84,0,0,1,15.62,0,7.66,7.66,0,0,1-1.59,4.6Zm0-422.49a7.43,7.43,0,0,1-1.47,1.47L138.75,52,126.19,39.58a7.61,7.61,0,0,1-1.47-1.47,7.84,7.84,0,1,1,14-4.78,7.84,7.84,0,0,1,15.62,0,7.66,7.66,0,0,1-1.59,4.78Zm147,209.59h0a28.06,28.06,0,0,1-5.31,5.25L250,297.17l-44.51-44.22a28,28,0,0,1-5.31-5.25h0A27.77,27.77,0,1,1,250,230.78a27.77,27.77,0,1,1,49.76,17ZM375.23,460.6a7.31,7.31,0,0,1-1.41,1.65l-12.5,12.38-12.62-12.38a7.49,7.49,0,0,1-1.47-1.47,7.84,7.84,0,1,1,14-4.78,7.84,7.84,0,0,1,15.62,0A7.72,7.72,0,0,1,375.23,460.6Zm0-422.49a7.31,7.31,0,0,1-1.47,1.47L361.25,52l-12.5-12.38a7.43,7.43,0,0,1-1.47-1.47,7.84,7.84,0,1,1,14-4.78,7.84,7.84,0,0,1,15.62,0A7.72,7.72,0,0,1,375.23,38.11Z"/></svg>
 
-<%= link_to 'Edit', edit_game_announcement_path(params[:game_id], @announcement) %> |
-<%= link_to 'Back', game_announcements_path %>
+        </div>
+        <div class="announcement_headlineRight">
+          <h1 class="announcement_title">1000 BORNES : Edition spéciale Tintin</h1>
+          <h2 class="announcement_category">JEU DE CARTES</h2>
+        </div>
+    </div>
+    <div class="announcement_content">
+      <div class="announcement_header">
+        <div class="announcement_descriptionContainer">
+          <div class="announcement_hashtags">
+            <ul>
+              <li>#hasard</li>
+              <li>#famille</li>
+              <li>#stratégie</li>
+            <ul>
+          </div>
+
+          <div class="announcement_metadata">
+            <div class="announcement_metadataLine">
+              <div class="announcement_metadataCell">
+                <svg  class="announcement_metadataIcon" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+                    <title>Joueurs</title>
+                    <desc>Created with Sketch.</desc>
+                    <defs></defs>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Joueurs" fill-rule="nonzero" fill="#494FEC">
+                            <g id="noun_1401794_cc" transform="translate(0.000000, 2.000000)">
+                                <g id="Group">
+                                    <polygon id="Shape" points="2.56475676 19.723375 3.77340541 19.723375 3.77340541 27.8901875 6.52627027 27.8901875 6.52627027 19.723375 7.73448649 19.723375 9.89189189 8.348375 0.408216216 8.348375"></polygon>
+                                    <ellipse id="Oval" cx="5.14983784" cy="3.6404375" rx="3.48972973" ry="3.530625"></ellipse>
+                                    <polygon id="Shape" points="13.4149189 19.723375 14.6235676 19.723375 14.6235676 27.8901875 17.3768649 27.8901875 17.3768649 19.723375 18.5846486 19.723375 20.7416216 8.348375 11.2583784 8.348375"></polygon>
+                                    <ellipse id="Oval" cx="16" cy="3.6404375" rx="3.48972973" ry="3.530625"></ellipse>
+                                    <polygon id="Shape" points="22.1081081 8.348375 24.2650811 19.723375 25.4737297 19.723375 25.4737297 27.8901875 28.2261622 27.8901875 28.2261622 19.723375 29.4348108 19.723375 31.5922162 8.348375"></polygon>
+                                    <path d="M26.8497297,7.1715 C28.7770811,7.1715 30.3403243,5.5908125 30.3403243,3.640875 C30.3403243,1.6909375 28.7770811,0.11025 26.8497297,0.11025 C24.9232432,0.11025 23.36,1.6909375 23.36,3.640875 C23.36,5.5908125 24.9232432,7.1715 26.8497297,7.1715 Z" id="Shape"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                <div class="announcement_metadataLabel">2-6 joueurs</div>
+              </div>
+              <div class="announcement_metadataCell">
+                <svg class="announcement_metadataIcon" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+                    <title>Age</title>
+                    <desc>Created with Sketch.</desc>
+                    <defs></defs>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Age" fill-rule="nonzero" fill="#494FEC">
+                            <g id="noun_631857_cc" transform="translate(1.000000, 0.000000)">
+                                <g id="Group">
+                                    <path d="M23.6727273,2.8173913 C18.2477273,-0.452173913 12.5761364,-0.52173913 7.15113636,2.85217391 C2.11363636,5.9826087 -0.105681818,10.7130435 0.0352272727,16.9043478 C3.31136364,14.8869565 4.61477273,11.8608696 5.8125,8.69565217 C6.69318182,10.4347826 6.69318182,11.1304348 5.8125,14.1913043 C8.94772727,13.6695652 11.2022727,12.1043478 12.3295455,9.00869565 C13.4920455,10.6086957 13.5625,12.2782609 13.2806818,14.0869565 C16.1340909,13.3565217 17.8602273,11.5826087 18.8465909,8.97391304 C18.9875,9.00869565 19.1284091,9.04347826 19.2340909,9.04347826 C19.375,10.5043478 19.4806818,12 19.6215909,13.6 C22.4045455,13.3565217 24.0954545,11.6521739 25.0465909,8.90434783 C27.4420455,15.1304348 28.4988636,16.5565217 30.8943182,16.626087 C31.1409091,10.6782609 28.8511364,5.91304348 23.6727273,2.8173913 Z" id="Shape"></path>
+                                    <path d="M15.9931818,29.426087 C9.08863636,29.4956522 4.75568182,25.8086957 2.64204545,19.373913 C1.97272727,19.5130435 1.37386364,19.6173913 0.669318182,19.7565217 C1.62045455,25.773913 7.64431818,31.4782609 15.3943182,31.6521739 C22.4045455,31.7913043 29.3795455,26.2608696 30.4011364,19.7913043 C29.7318182,19.6521739 29.0625,19.5130435 28.3931818,19.4086957 C26.3147727,26.1217391 21.2068182,29.3913043 15.9931818,29.426087 Z" id="Shape"></path>
+                                    <path d="M10.3920455,20.9391304 C10.1454545,20.6608696 9.05340909,21.5652174 9.3,21.8782609 C10.85,23.9304348 12.8931818,25.1130435 15.5352273,25.1826087 C17.8954545,25.1826087 20.5375,23.826087 21.7704545,21.8782609 C21.9818182,21.5304348 20.9602273,20.626087 20.6784091,20.9043478 C17.4727273,24.3478261 13.5977273,24.3478261 10.3920455,20.9391304 Z" id="Shape"></path>
+                                    <path d="M10.3568182,15.026087 C9.54659091,15.0608696 9.01818182,15.5478261 9.05340909,16.3826087 C9.05340909,17.2869565 9.58181818,17.7391304 10.3920455,17.8086957 C11.3431818,17.7391304 11.8715909,17.2173913 11.8363636,16.3826087 C11.8011364,15.5478261 11.2375,14.9913043 10.3568182,15.026087 Z" id="Shape"></path>
+                                    <path d="M21.9818182,16.3826087 C21.9818182,15.5478261 21.4534091,15.0608696 20.6431818,15.026087 C19.7625,14.9913043 19.1988636,15.5130435 19.1988636,16.3826087 C19.1988636,17.2521739 19.6920455,17.7391304 20.6784091,17.8086957 C21.4886364,17.7391304 22.0170455,17.2869565 21.9818182,16.3826087 Z" id="Shape"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                <div class="announcement_metadataLabel">3+</div>
+              </div>
+            </div>
+            <div class="announcement_metadataLine">
+              <div class="announcement_metadataCell">
+                <svg class="announcement_metadataIcon" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+                    <title>Etat</title>
+                    <desc>Created with Sketch.</desc>
+                    <defs></defs>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Etat" fill-rule="nonzero" fill="#494FEC">
+                            <g id="noun_1141054_cc" transform="translate(1.000000, 0.000000)">
+                                <path d="M30.1153846,10.6153846 C24.7500154,10.6153846 20.3846154,6.25033846 20.3846154,0.884615385 C20.3846154,0.395953846 19.9886615,0 19.5,0 C19.0113385,0 18.6153846,0.395953846 18.6153846,0.884615385 C18.6153846,6.25033846 14.2499846,10.6153846 8.88461538,10.6153846 C8.39595385,10.6153846 8,11.0113385 8,11.5 C8,11.9886615 8.39595385,12.3846154 8.88461538,12.3846154 C14.2499846,12.3846154 18.6153846,16.7496615 18.6153846,22.1153846 C18.6153846,22.6040462 19.0113385,23 19.5,23 C19.9886615,23 20.3846154,22.6040462 20.3846154,22.1153846 C20.3846154,16.7496615 24.7500154,12.3846154 30.1153846,12.3846154 C30.6040462,12.3846154 31,11.9886615 31,11.5 C31,11.0113385 30.6040462,10.6153846 30.1153846,10.6153846 Z M19.5,17.6923077 C18.3333692,14.9029385 16.0974154,12.6669846 13.3076923,11.5 C16.0974154,10.3333692 18.3333692,8.09741538 19.5,5.30769231 C20.6666308,8.09706154 22.9025846,10.3330154 25.6923077,11.5 C22.9025846,12.6666308 20.6666308,14.9025846 19.5,17.6923077 Z" id="Shape"></path>
+                                <path d="M0.888888889,24.8888889 C4.31964444,24.8888889 7.11111111,27.6803556 7.11111111,31.1111111 C7.11111111,31.6021333 7.50897778,32 8,32 C8.49102222,32 8.88888889,31.6021333 8.88888889,31.1111111 C8.88888889,27.6803556 11.6803556,24.8888889 15.1111111,24.8888889 C15.6021333,24.8888889 16,24.4910222 16,24 C16,23.5089778 15.6021333,23.1111111 15.1111111,23.1111111 C11.6803556,23.1111111 8.88888889,20.3196444 8.88888889,16.8888889 C8.88888889,16.3978667 8.49102222,16 8,16 C7.50897778,16 7.11111111,16.3978667 7.11111111,16.8888889 C7.11111111,20.3196444 4.31964444,23.1111111 0.888888889,23.1111111 C0.397866667,23.1111111 0,23.5089778 0,24 C0,24.4910222 0.397866667,24.8888889 0.888888889,24.8888889 Z M8,20.5518222 C8.76302222,22.0273778 9.97262222,23.2366222 11.4481778,24 C9.97262222,24.7630222 8.76302222,25.9726222 8,27.4481778 C7.23697778,25.9726222 6.02737778,24.7633778 4.55182222,24 C6.02737778,23.2369778 7.23697778,22.0273778 8,20.5518222 Z" id="Shape"></path>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                <div class="announcement_metadataLabel">Très bon état</div>
+              </div>
+              <div class="announcement_metadataCell">
+                <svg class="announcement_metadataIcon" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+                    <title>Temps</title>
+                    <desc>Created with Sketch.</desc>
+                    <defs></defs>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Temps" fill-rule="nonzero" fill="#494FEC">
+                            <g id="noun_1055053_cc">
+                                <g id="Group">
+                                    <path d="M15.5,0.150520519 C6.95411579,0.150520519 0,7.23572779 0,15.9427325 C0,24.6497247 6.95411579,31.7349403 15.5,31.7349403 C24.0458842,31.7349403 31,24.6497247 31,15.9427325 C31,7.23572779 24.0458842,0.150524675 15.5,0.150524675 L15.5,0.150520519 Z M15.5,2.64402701 C22.7232039,2.64402701 28.5526316,8.58333506 28.5526316,15.9427325 C28.5526316,23.3021091 22.7232039,29.2414338 15.5,29.2414338 C8.27679605,29.2414338 2.44736842,23.3021091 2.44736842,15.9427325 C2.44736842,8.58333506 8.27679605,2.64403117 15.5,2.64403117 L15.5,2.64402701 Z M15.5,4.72194909 C14.8242,4.72194909 14.2763158,5.28016208 14.2763158,5.96870234 L14.2763158,15.9427325 C14.2763158,16.4038234 14.5229289,16.8049455 14.8881579,17.0206753 L22.6636513,21.5920623 C23.2488987,21.9363325 23.9955908,21.7338597 24.33345,21.1375377 C24.6714316,20.5412156 24.4726237,19.7805299 23.8873355,19.4362597 L16.7236842,15.2284675 L16.7236842,5.96870234 C16.7236842,5.28016208 16.1758408,4.72194909 15.5,4.72194909 Z" id="Shape"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                <div class="announcement_metadataLabel">1h à 2h</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="announcement_img">
+          <img src="" alt="">
+        </div>
+      </div>
+      <div class="announcement_desc">
+        <h3 class="announcement_descTitle">DESCRIPTION</h3>
+        <p class="description_descText">
+          Jeu de 1000 bornes complet, presque jamais utilisé.
+          Il s’agit d’une édition spéciale consacrée à Tintin.
+          Venez parcourir la route avec votre reporter préféré et son fidèle Milou !<br>
+          Le jeu convient à tous les âges du moment que vous savez faire une addition.
+          Les cartes sont magnifiques et reprennent les véhicules les plus emblématiques de la série.
+          Si vous avez des questions, contactez-moi !
+        </p>
+      </div>
+      <div class="announcement_desc">
+        <h3 class="announcement_descTitle">DISPONIBILITE</h3>
+        <p class="description_descText">
+          Location du jeu de société pour une soirée minimum.<br>
+          Je suis disponible tous les soirs en semaine entre 18h et 20h pour vous transmettre
+          le jeu et le récupérer le lendemain.<br>
+          Amusez-vous bien !
+        </p>
+      </div>
+      <div class="announcement_location">
+        <h3 class="announcement_descTitle">LOCALISATION</h3>
+        <div class="location_content">
+          <div class="location_name">Thierry C.</div>
+          <div class="location_adress">Avenue Ledru-Rollin</div>
+          <div class="location_city">75014 Paris</div>
+        </div>
+        <div class="location_map">
+        </div>
+      </div>
+      <div class="announcement_recommendationsTitle">Recommandations</div>
+      </div>
+  </div>
+  <div class="container_reservation">
+    <div class="reservation_header">
+      <div class="reservation_information">
+        <div class="reservation_price">
+          <div class="reservation_priceNumber">4€ <span class="reservation_priceFrequency">par jour</span></div>
+        </div>
+        <div class="reservation_score">
+          <h3>NOTES</h3>
+          <div class="reservation_scoreInformations">
+            <div class="reservation_score"></div>
+            <div class="reservation_scoreInformationsVote"></div>
+          </div>
+        </div>
+      </div>
+      <div class="reservation_author">
+        <img src="" alt="">
+        <div class="reservation_placeholder"></div>
+        <div class="reservation_authorSubtitle">Thierry C.</div>
+      </div>
+    </div>
+    <div class="reservation_start">
+      <h3>DEBUT DE LA LOCATION</h3>
+      <input type="text" name="" value="">
+    </div>
+    <div class="reservation_end">
+      <h3>FIN DE LA LOCATION</h3>
+      <input type="text" name="" value="">
+    </div>
+    <div class="reservation_summary">
+      <h3>RECAPITULATIF</h3>
+      <div class="reservation_summaryLine">
+        <div class="reservation_summaryLineLabel">4€ x 2 jours</div>
+        <div class="reservation_summaryLinePrice">8€</div>
+      </div>
+      <div class="reservation_summaryLine">
+        <div class="reservation_summaryLineLabel">Caution</div>
+        <div class="reservation_summaryLinePrice">8€</div>
+      </div>
+      <div class="reservation_summaryLine reservation_summaryLine--blueColor">
+        <div class="reservation_summaryLineLabel">Total</div>
+        <div class="reservation_summaryLinePrice">10€</div>
+      </div>
+    </div>
+    <div class="reservation_button">
+      <input type="button" name="" value="Je réserve">
+    </div>
+  </div>
+</div>
+<%= react_component("Footer", {rs: [image_path("facebook.svg"), image_path("twitter.svg"), image_path("instagram.svg"), image_path("youtube.svg")]}) %>

@@ -5,6 +5,7 @@ import TextField from 'material-ui/TextField';
 import PartajouerTheme from '../PartajouerTheme';
 import RaisedButton from 'material-ui/RaisedButton';
 import Snackbar from 'material-ui/Snackbar';
+import UploadInput from './UploadInput';
 import * as $ from 'jquery';
 
 const customTexts = {
@@ -36,7 +37,7 @@ const initialState = {
     current_password: '',
     last_name: '',
     first_name: '',
-    avatar: {}
+    avatar: '',
   },
   formError: {
     email: '',
@@ -45,7 +46,7 @@ const initialState = {
     current_password: '',
     last_name: '',
     first_name: '',
-    avatar: {},
+    avatar: '',
   },
   servError: '',
   showServError: false,
@@ -72,11 +73,18 @@ class AccountForm extends React.Component {
     this.setState({user});
   }
 
+  imageHandler = (name, image) => {
+    let user = {...this.state.user};
+    user[name] = image;
+    this.setState({user});
+  }
+
   handleSubmit = (e) => {
       e.preventDefault();
       $.ajaxSetup({
         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
       });
+
       $.ajax({
         method: this.props.modifying ? "PUT" : "POST",
         url: this.props.actionUrl,
@@ -99,7 +107,7 @@ class AccountForm extends React.Component {
         for(let key in err.responseJSON.errors) {
           err.responseJSON.errors[key] = err.responseJSON.errors[key].join(' | ');
         }
-        console.log(err);
+
         this.setState({
           formError: {...err.responseJSON.errors},
           servError: this.text.servError,
@@ -115,6 +123,7 @@ class AccountForm extends React.Component {
             <Snackbar
               open={this.state.showServError}
               message={this.state.servError}
+              onRequestClose={() => { this.setState({ showServError: false }) }}
               autoHideDuration={6000}
               bodyStyle={{ backgroundColor: '#E53935', color: 'white' }}
             />
@@ -186,6 +195,7 @@ class AccountForm extends React.Component {
                 errorText={this.state.formError.first_name}
                 style={{width:'80%'}}
               />
+              <UploadInput imageHandler={this.imageHandler} uploadError={this.state.formError.avatar} style={{width: '100px', height:'100px'}} name="avatar"/>
               <RaisedButton
                 className="form__input"
                 label={this.text.sendLabel}

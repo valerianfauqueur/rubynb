@@ -9,6 +9,7 @@ import MenuItem from 'material-ui/MenuItem';
 import SearchBar from 'material-ui-search-bar';
 import Twemoji from 'react-twemoji';
 import PartajouerTheme from '../PartajouerTheme';
+import RaisedButton from 'material-ui/RaisedButton';
 
 
 class CustomMenu extends React.Component {
@@ -37,19 +38,21 @@ class CustomMenu extends React.Component {
 
   loggedInMenu = () => {
       return (
-        <li className="menu__navItem menu__navItem--logged menu__navItem--last">
+        <li className="menu__navItem menu__navItem--last">
           <FlatButton
             onClick={this.handleClick}
             style={{height: '100%', lineHeight: '100px'}}
+            labelStyle={{display:'inline-block', heigth: '100%'}}
             label={
-              <span>
+              <span style={{display:'flex', heigth: '100%', alignItems: 'center', justifyContent:'center' }}>
                 <span class="menu__navProfile">{this.props.user.first_name + ' ' + this.props.user.last_name}</span>
                 <Avatar
                   size={48}
+                  src={this.props.profilePictureUrl}
                   style={{
                     borderRadius: '3px'
                   }}
-                >A</Avatar>
+                ></Avatar>
               </span>
             }
           />
@@ -91,6 +94,13 @@ class CustomMenu extends React.Component {
                   }}
                 />
               </li>
+              { this.props.isLoggedIn &&
+              <li className="menu__navItem menu__navItem--end">
+                <RaisedButton
+                  label="Créer une annonce"
+                  primary={true}
+                />
+              </li>}
               { this.props.isLoggedIn && this.loggedInMenu() }
               { !this.props.isLoggedIn && <li className="menu__navItem menu__navItem--end"><a href={this.props.links.signup}>inscription</a></li> }
               { !this.props.isLoggedIn && <li className="menu__navItem menu__navItem--last"><a href={this.props.links.login}>connexion</a></li> }

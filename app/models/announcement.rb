@@ -51,4 +51,5 @@ class Announcement < ApplicationRecord
     :less_than_or_equal_to => 99999
   }
 
+  self.per_page = 20
 end

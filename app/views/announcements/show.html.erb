@@ -1,14 +1,30 @@
-<%= react_component("CustomMenu") %>
+<%= react_component("CustomMenu", {
+    isLoggedIn: user_signed_in?,
+    user: current_user,
+    links: {
+      signup: url_for(new_user_registration_path),
+      login: url_for(new_user_session_path),
+      logout: url_for(destroy_user_session_path),
+      editProfile: url_for(edit_user_registration_path),
+    },
+    profilePictureUrl: user_signed_in? ? current_user.avatar.url('thumb') : '',
+  })
+%>
 <div class="container_global">
   <div class="container_announcement">
     <div class="announcement_headline">
         <div class="announcement_headlineLeft">
           <svg  class="announcement_headlineIcon" fill="#fff" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><title>cartes</title><path d="M96.12.37V499.63H403.88V.37Zm56.6,460.22a7.49,7.49,0,0,1-1.47,1.47l-12.5,12.38-12.56-12.2a7.66,7.66,0,0,1-1.47-1.47,7.84,7.84,0,1,1,14-4.78,7.84,7.84,0,0,1,15.62,0,7.66,7.66,0,0,1-1.59,4.6Zm0-422.49a7.43,7.43,0,0,1-1.47,1.47L138.75,52,126.19,39.58a7.61,7.61,0,0,1-1.47-1.47,7.84,7.84,0,1,1,14-4.78,7.84,7.84,0,0,1,15.62,0,7.66,7.66,0,0,1-1.59,4.78Zm147,209.59h0a28.06,28.06,0,0,1-5.31,5.25L250,297.17l-44.51-44.22a28,28,0,0,1-5.31-5.25h0A27.77,27.77,0,1,1,250,230.78a27.77,27.77,0,1,1,49.76,17ZM375.23,460.6a7.31,7.31,0,0,1-1.41,1.65l-12.5,12.38-12.62-12.38a7.49,7.49,0,0,1-1.47-1.47,7.84,7.84,0,1,1,14-4.78,7.84,7.84,0,0,1,15.62,0A7.72,7.72,0,0,1,375.23,460.6Zm0-422.49a7.31,7.31,0,0,1-1.47,1.47L361.25,52l-12.5-12.38a7.43,7.43,0,0,1-1.47-1.47,7.84,7.84,0,1,1,14-4.78,7.84,7.84,0,0,1,15.62,0A7.72,7.72,0,0,1,375.23,38.11Z"/></svg>
-
         </div>
         <div class="announcement_headlineRight">
-          <h1 class="announcement_title">1000 BORNES : Edition spéciale Tintin</h1>
-          <h2 class="announcement_category">JEU DE CARTES</h2>
+          <h1 class="announcement_title"><%= "#{@announcement.game_title.upcase} : #{@announcement.title.capitalize}" %></h1>
+          <% case @announcement.game_type
+          when 1 %><% type="Jeu de plateau" %>
+          <% when 2 %><% type="Jeu de cartes" %>
+          <% when 3 %><% type="Jeu de dès" %>
+          <% when 4 %><% type="Jeu en plein air" %>
+          <% end %>
+          <h2 class="announcement_category"><%= type.upcase %></h2>
         </div>
     </div>
     <div class="announcement_content">
@@ -16,12 +32,11 @@
         <div class="announcement_descriptionContainer">
           <div class="announcement_hashtags">
             <ul>
-              <li>#hasard</li>
-              <li>#famille</li>
-              <li>#stratégie</li>
+              <% for @tags in @announcement.game_tags %>
+                <li>#<%= @tags.downcase %></li>
+              <% end %>
             <ul>
           </div>
-
           <div class="announcement_metadata">
             <div class="announcement_metadataLine">
               <div class="announcement_metadataCell">
@@ -41,14 +56,10 @@
                         </g>
                     </g>
                 </svg>
-                <div class="announcement_metadataLabel">2-6 joueurs</div>
+                <div class="announcement_metadataLabel"><%= "#{@announcement.game_min_players}-#{@announcement.game_max_players} joueurs"%></div>
               </div>
               <div class="announcement_metadataCell">
                 <svg class="announcement_metadataIcon" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
-                    <title>Age</title>
-                    <desc>Created with Sketch.</desc>
-                    <defs></defs>
                     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="Age" fill-rule="nonzero" fill="#494FEC">
                             <g id="noun_631857_cc" transform="translate(1.000000, 0.000000)">
@@ -63,16 +74,12 @@
                         </g>
                     </g>
                 </svg>
-                <div class="announcement_metadataLabel">3+</div>
+                <div class="announcement_metadataLabel"><%= "#{@announcement.game_min_age}+" %></div>
               </div>
             </div>
             <div class="announcement_metadataLine">
               <div class="announcement_metadataCell">
                 <svg class="announcement_metadataIcon" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
-                    <title>Etat</title>
-                    <desc>Created with Sketch.</desc>
-                    <defs></defs>
                     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="Etat" fill-rule="nonzero" fill="#494FEC">
                             <g id="noun_1141054_cc" transform="translate(1.000000, 0.000000)">
@@ -82,14 +89,16 @@
                         </g>
                     </g>
                 </svg>
-                <div class="announcement_metadataLabel">Très bon état</div>
+                <% case @announcement.game_status
+                when 1 %><% status="Neuf" %>
+                <% when 2 %><% status="Très bon état" %>
+                <% when 3 %><% status="Bon état" %>
+                <% when 4 %><% status="Passable" %>
+                <% end %>
+                <div class="announcement_metadataLabel"><%= status %></div>
               </div>
               <div class="announcement_metadataCell">
                 <svg class="announcement_metadataIcon" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
-                    <title>Temps</title>
-                    <desc>Created with Sketch.</desc>
-                    <defs></defs>
                     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="Temps" fill-rule="nonzero" fill="#494FEC">
                             <g id="noun_1055053_cc">
@@ -100,94 +109,37 @@
                         </g>
                     </g>
                 </svg>
-                <div class="announcement_metadataLabel">1h à 2h</div>
+                <% game_min_seconds = @announcement.game_min_duration * 60;
+                   game_max_seconds = @announcement.game_max_duration * 60;
+                   game_min_duration = @announcement.game_min_duration % 60 === 0 ? Time.at(game_min_seconds).utc.strftime("%kh") : @announcement.game_min_duration / 60 < 1 ? Time.at(game_min_seconds).utc.strftime("%Mmin") : Time.at(game_min_seconds).utc.strftime("%kh%M")
+                   game_max_duration = @announcement.game_max_duration % 60 === 0 ? Time.at(game_max_seconds).utc.strftime("%kh") : @announcement.game_max_duration / 60 < 1 ? Time.at(game_max_seconds).utc.strftime("%Mmin") : Time.at(game_max_seconds).utc.strftime("%kh%M") %>
+                <div class="announcement_metadataLabel"><%= "#{game_min_duration} à #{game_max_duration}" %></div>
               </div>
             </div>
           </div>
         </div>
         <div class="announcement_img">
-          <img src="" alt="">
+          <%= react_component("SimpleSlider", { images: @announcement.pictures}) %>
         </div>
       </div>
       <div class="announcement_desc">
         <h3 class="announcement_descTitle">DESCRIPTION</h3>
         <p class="description_descText">
-          Jeu de 1000 bornes complet, presque jamais utilisé.
-          Il s’agit d’une édition spéciale consacrée à Tintin.
-          Venez parcourir la route avec votre reporter préféré et son fidèle Milou !<br>
-          Le jeu convient à tous les âges du moment que vous savez faire une addition.
-          Les cartes sont magnifiques et reprennent les véhicules les plus emblématiques de la série.
-          Si vous avez des questions, contactez-moi !
+          <%= @announcement.description %>
         </p>
       </div>
       <div class="announcement_desc">
         <h3 class="announcement_descTitle">DISPONIBILITE</h3>
         <p class="description_descText">
-          Location du jeu de société pour une soirée minimum.<br>
-          Je suis disponible tous les soirs en semaine entre 18h et 20h pour vous transmettre
-          le jeu et le récupérer le lendemain.<br>
-          Amusez-vous bien !
+          <%= @announcement.availibity %>
         </p>
       </div>
-      <div class="announcement_location">
-        <h3 class="announcement_descTitle">LOCALISATION</h3>
-        <div class="location_content">
-          <div class="location_name">Thierry C.</div>
-          <div class="location_adress">Avenue Ledru-Rollin</div>
-          <div class="location_city">75014 Paris</div>
-        </div>
-        <div class="location_map">
-        </div>
-      </div>
       <div class="announcement_recommendationsTitle">Recommandations</div>
+        <%= react_component("AnnouncementCardGrid", style={gridGap:0}) %>
       </div>
   </div>
-  <div class="container_reservation">
-    <div class="reservation_header">
-      <div class="reservation_information">
-        <div class="reservation_price">
-          <div class="reservation_priceNumber">4€ <span class="reservation_priceFrequency">par jour</span></div>
-        </div>
-        <div class="reservation_score">
-          <h3>NOTES</h3>
-          <div class="reservation_scoreInformations">
-            <div class="reservation_score"></div>
-            <div class="reservation_scoreInformationsVote"></div>
-          </div>
-        </div>
-      </div>
-      <div class="reservation_author">
-        <img src="" alt="">
-        <div class="reservation_placeholder"></div>
-        <div class="reservation_authorSubtitle">Thierry C.</div>
-      </div>
-    </div>
-    <div class="reservation_start">
-      <h3>DEBUT DE LA LOCATION</h3>
-      <input type="text" name="" value="">
-    </div>
-    <div class="reservation_end">
-      <h3>FIN DE LA LOCATION</h3>
-      <input type="text" name="" value="">
-    </div>
-    <div class="reservation_summary">
-      <h3>RECAPITULATIF</h3>
-      <div class="reservation_summaryLine">
-        <div class="reservation_summaryLineLabel">4€ x 2 jours</div>
-        <div class="reservation_summaryLinePrice">8€</div>
-      </div>
-      <div class="reservation_summaryLine">
-        <div class="reservation_summaryLineLabel">Caution</div>
-        <div class="reservation_summaryLinePrice">8€</div>
-      </div>
-      <div class="reservation_summaryLine reservation_summaryLine--blueColor">
-        <div class="reservation_summaryLineLabel">Total</div>
-        <div class="reservation_summaryLinePrice">10€</div>
-      </div>
-    </div>
-    <div class="reservation_button">
-      <input type="button" name="" value="Je réserve">
-    </div>
-  </div>
+  <%= form_with(model: @reservation, local: true) do |f| %>
+  <%= react_component("ReservationCard", {user: @announcement.user, min_reservation: @announcement.min_reservation, max_reservation: @announcement.max_reservation, announcement_id: @announcement.id, renting: @announcement.renting_price, caution: @announcement.caution_price}) %>
+  <% end %>
 </div>
 <%= react_component("Footer", {rs: [image_path("facebook.svg"), image_path("twitter.svg"), image_path("instagram.svg"), image_path("youtube.svg")]}) %>

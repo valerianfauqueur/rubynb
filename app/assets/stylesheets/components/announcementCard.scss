@@ -40,6 +40,7 @@
   font-weight: bold;
   margin-top: 10px;
   color: $textColor;
+  text-transform: uppercase;
 }
 
 .announcement__title {
@@ -61,11 +62,8 @@
   display: flex;
   justify-content: space-between;
   margin-top: 25px;
-  margin-bottom: 20px;
+  padding-bottom: 40px;
 }
 
 .announcement__rating {
-}
-
-.announcement__author {
 }

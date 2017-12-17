@@ -163,13 +163,12 @@ class AnnouncementForm extends React.Component {
         },
       })
       .done((data) => {
-        console.log(data);
         if(this.props.modifying) {
           this.setState({
             showSuccess: true,
           });
         } else {
-          window.location.replace("/");
+          window.location.replace(`/announcements/${data.id}`);
         }
       })
       .fail((err) => {

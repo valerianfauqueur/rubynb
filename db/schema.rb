@@ -58,11 +58,12 @@ ActiveRecord::Schema.define(version: 20171126175438) do
 
   create_table "reservations", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "game_id"
-    t.date "startDate"
-    t.date "endDate"
-    t.string "status"
-    t.index ["game_id"], name: "index_reservations_on_game_id"
+    t.integer "announcement_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["announcement_id"], name: "index_reservations_on_announcement_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 

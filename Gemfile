@@ -36,6 +36,9 @@ gem 'paperclip'
 gem 'money-rails'
 gem 'webpacker'
 gem 'react-rails'
+gem "will_paginate"
+gem 'validates_overlap'
+gem 'date_validator'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

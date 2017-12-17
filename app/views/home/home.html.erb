@@ -36,10 +36,10 @@
           <h2 class="category__title title">Catégories</h2>
         </div>
         <div class="category__cards">
-            <%= react_component("CategoryCard", {categoryTitle:"Jeux de cartes", categoryImg: image_path("cartes.svg")}) %>
-            <%= react_component("CategoryCard", {categoryTitle:"Jeux de plateau", categoryImg: image_path("plateau.svg")}) %>
-            <%= react_component("CategoryCard", {categoryTitle:"Jeux de dès", categoryImg: image_path("des.svg")}) %>
-            <%= react_component("CategoryCard", {categoryTitle:"Jeux en plein air", categoryImg: image_path("plein_air.svg")}) %>
+            <%= react_component("CategoryCard", {categoryTitle:"Jeux de cartes", categoryImg: image_path("cartes.svg"), category: 1}) %>
+            <%= react_component("CategoryCard", {categoryTitle:"Jeux de plateau", categoryImg: image_path("plateau.svg"), category: 2}) %>
+            <%= react_component("CategoryCard", {categoryTitle:"Jeux de dès", categoryImg: image_path("des.svg")}, category: 3) %>
+            <%= react_component("CategoryCard", {categoryTitle:"Jeux en plein air", categoryImg: image_path("plein_air.svg")}, category: 4) %>
         </div>
       </section>
 
@@ -48,21 +48,12 @@
           <div class="announcements__categoryHeader">
             <h2 class="announcements__categoryTitle title">Proche de chez vous</h2>
           </div>
-          <div class="announcements__categoryContent">
-            <% 7.times do |announcements| %>
-              <%= react_component("AnnouncementCard") %>
-            <% end %>
-          </div>
-
+          <%= react_component("AnnouncementCardGrid", @announcements) %>
           <section class="announcements__category">
             <div class="announcements__categoryHeader">
-              <h2 class="announcements__categoryTitle title">Proche de chez vous</h2>
+              <h2 class="announcements__categoryTitle title">Tendances</h2>
             </div>
-            <div class="announcements__categoryContent">
-              <% 8.times do |announcements| %>
-                <%= react_component("AnnouncementCard") %>
-              <% end %>
-            </div>
+            <%= react_component("AnnouncementCardGrid") %>
           </section>
         </section>
       </section>

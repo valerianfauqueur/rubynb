@@ -7,9 +7,8 @@ class User < ApplicationRecord
   has_attached_file :avatar,
     styles: { medium: "300x300>", thumb: "100x100>" },
     default_url: '/assets/default_profile.png',
-    path: ":rails_root/public/images/profile/:id/:style/:hash.:extension",
-    url: "/images/profile/:id/:style/:hash.:extension",
-    :hash_secret => "ilikesgems"
+    path: ":rails_root/public/images/profile/:id/:style/:filename",
+    url: "/images/profile/:id/:style/:filename"
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 3.megabytes

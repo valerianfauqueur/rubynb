@@ -4,7 +4,20 @@ class AnnouncementsController < ApplicationController
   # GET /announcements
   # GET /announcements.json
   def index
-    @announcements = Announcement.all
+    announcements = Announcement.all
+    if params[:category]
+      announcements = announcements.where(["game_category = ?", params[:category]])
+    end
+    if params['sort']
+      f = params['sort'].split(',').first
+      field = f[0] == '-' ? f[1..-1] : f
+      order = f[0] == '-' ? 'DESC' : 'ASC'
+      if Announcement.new.has_attribute?(field)
+        announcements = announcements.order("#{field} #{order}")
+      end
+    end
+    announcements = Announcement.page(params[:page] ? params[:page][:number] : 1)
+    render json: announcements, meta: pagination_meta(announcements),  include: ['user', 'pictures']
   end
 
   # GET /announcements/1
@@ -63,6 +76,18 @@ class AnnouncementsController < ApplicationController
   end
 
   private
+
+
+    def pagination_meta(object)
+      {
+        current_page: object.current_page,
+        next_page: object.next_page,
+        prev_page: object.previous_page,
+        total_pages: object.total_pages,
+        total_count: object.total_entries
+      }
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_announcement
       @announcement = Announcement.find(params[:id])

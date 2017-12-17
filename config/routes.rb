@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     resources :announcements, only: [:new, :edit, :create, :update, :destroy]
   end
 
-  resources :user, only: [:index, :show]
-
-  get '/games/:game_id/announcements', to: 'announcements#create', as: :create_game_announcement, method: :post
+  resources :announcements, only: [:index, :show]
+  
 end

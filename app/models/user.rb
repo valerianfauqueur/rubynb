@@ -16,7 +16,6 @@ class User < ApplicationRecord
 
   has_many :addresses, dependent: :destroy
   has_many :reservations
-  has_many :games, dependent: :destroy
 
   validates :first_name, presence: true, length: {maximum: 65}
   validates :last_name, presence: true, length: {maximum: 65}

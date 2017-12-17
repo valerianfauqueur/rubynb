@@ -24,27 +24,27 @@ ActiveRecord::Schema.define(version: 20171126175438) do
   end
 
   create_table "announcements", force: :cascade do |t|
-    t.integer "game_id"
+    t.integer "user_id"
+    t.string "game_title"
+    t.integer "game_type"
+    t.integer "game_min_players"
+    t.integer "game_max_players"
+    t.integer "game_min_age"
+    t.integer "game_status"
+    t.integer "game_min_duration"
+    t.integer "game_max_duration"
+    t.string "game_content"
+    t.string "game_tags"
     t.string "title"
     t.string "description"
+    t.string "availibity"
     t.integer "min_reservation"
     t.integer "max_reservation"
     t.integer "renting_price"
     t.integer "caution_price"
-    t.string "status", default: "DRAFT"
-    t.index ["game_id"], name: "index_announcements_on_game_id"
-  end
-
-  create_table "games", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "name"
-    t.integer "max_players"
-    t.integer "min_players"
-    t.integer "min_age"
-    t.integer "max_age"
-    t.string "status"
-    t.boolean "rentable"
-    t.index ["user_id"], name: "index_games_on_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_announcements_on_user_id"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20171126175438) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
-    t.integer "game_id"
-    t.index ["game_id"], name: "index_pictures_on_game_id"
+    t.integer "announcement_id"
+    t.index ["announcement_id"], name: "index_pictures_on_announcement_id"
   end
 
   create_table "reservations", force: :cascade do |t|

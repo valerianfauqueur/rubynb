@@ -1,15 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const initialState = {
-  upload: '',
-  imageUrl: '',
-}
-
 class UploadInput extends React.Component {
+
   constructor(props) {
     super(props);
-    this.state = initialState;
+    this.state = {
+      upload: '',
+    };
+    this.state.imageUrl = this.props.imageUrl ? this.props.imageUrl : '';
   }
 
   deleteFile = (e) => {
@@ -19,6 +18,7 @@ class UploadInput extends React.Component {
     }, () => {
       var event = new Event('change', { bubbles: true });
       this.myinput.dispatchEvent(event);
+      this.props.imageHandler(event.target.name, '');
     });
   }
 
@@ -41,11 +41,11 @@ class UploadInput extends React.Component {
 
   render () {
     return (
-      <div className="upload__container">
-        <h2>Ajoutez une image de profil</h2>
-        <div className="upload__inputContainer" style={this.props.style}>
+      <div className="upload__container" style={this.props.style}>
+        {this.props.title && <h2>{this.props.title}</h2>}
+        <div className="upload__inputContainer" style={{height: '100%', width: '100%'}}>
           <input onChange={this.handleImageChange} className="upload__input" type="file" name={this.props.name} value={this.state.upload} ref={(input)=> this.myinput = input}></input>
-          <svg className={"upload__inputUploadIcon " + (this.state.upload ? 'upload__inputUploadIcon--hide' : '')} width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <svg className={"upload__inputUploadIcon " + (this.state.imageUrl ? 'upload__inputUploadIcon--hide' : '')} width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
               <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                   <g id="Upload" fill="#000000" fill-rule="nonzero">
                       <g id="noun_1014303_cc" transform="translate(0.000000, 3.000000)">
@@ -57,8 +57,8 @@ class UploadInput extends React.Component {
                   </g>
               </g>
           </svg>
-          <img class={"upload__inputPreview " + (this.state.upload ? 'upload__inputPreview--show' : '')} src={this.state.imageUrl} />
-          <div className={"upload__inputHover " + (this.state.upload ? 'hasfile' : '')} style={this.state.upload ? {} : {pointerEvents: 'none'}}>
+          <img class={"upload__inputPreview " + (this.state.imageUrl ? 'upload__inputPreview--show' : '')} src={this.state.imageUrl} />
+          <div className={"upload__inputHover " + (this.state.imageUrl ? 'hasfile' : '')} style={this.state.imageUrl ? {} : {pointerEvents: 'none'}}>
             <svg onClick={this.deleteFile} className="upload__inputDeleteIcon" width="24px" height="24px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Trash" fill="#FFFFFF" fill-rule="nonzero">

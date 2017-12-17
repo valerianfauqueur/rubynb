@@ -15,6 +15,7 @@ class AnnouncementsController < ApplicationController
   # GET /announcements/new
   def new
     @announcement = Announcement.new
+    @announcement.pictures.build
   end
 
   # GET /announcements/1/edit
@@ -25,10 +26,10 @@ class AnnouncementsController < ApplicationController
   # POST /announcements.json
   def create
     @announcement = Announcement.new(announcement_params)
-    @announcement.game_id = params[:game_id]
+    @announcement.user = current_user
     respond_to do |format|
       if @announcement.save
-        format.html { redirect_to game_announcement_url(params[:game_id], @announcement), notice: 'Announcement was successfully created.' }
+        format.html { redirect_to @announcement, notice: 'Announcement was successfully created.' }
         format.json { render :show, status: :created, location: @announcement }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class AnnouncementsController < ApplicationController
   def update
     respond_to do |format|
       if @announcement.update(announcement_params)
-        format.html { redirect_to game_announcement_url(params[:game_id], @announcement), notice: 'Announcement was successfully updated.' }
+        format.html { redirect_to @announcement, notice: 'Announcement was successfully updated.' }
         format.json { render :show, status: :ok, location: @announcement }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class AnnouncementsController < ApplicationController
   def destroy
     @announcement.destroy
     respond_to do |format|
-      format.html { redirect_to game_announcements_url, notice: 'Announcement was successfully destroyed.' }
+      format.html { redirect_to announcements_url, notice: 'Announcement was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +70,25 @@ class AnnouncementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def announcement_params
-      params.require(:announcement).permit(:title, :description, :renting, :caution, :min_reservation, :max_reservation)
+      params.require(:announcement).permit(
+        :game_title,
+        :game_type,
+        :game_min_players,
+        :game_max_players,
+        :game_min_age,
+        :game_status,
+        :game_min_duration,
+        :game_max_duration,
+        :title,
+        :description,
+        :availibity,
+        :min_reservation,
+        :max_reservation,
+        :renting,
+        :caution,
+        game_content: [],
+        game_tags: [],
+        pictures_attributes: [:image, :image_file_name]
+      )
     end
 end

@@ -9,6 +9,10 @@
   }
 }
 
+.edit__page--white {
+  background-color: white;
+}
+
 .form__page {
   flex: 1 1 auto;
   display: flex;
@@ -41,6 +45,86 @@
   align-items: center;
 
   .form__margin {
-    margin-top: 20px;
+    margin-top: 10px;
   }
+}
+
+div[data-react-class=AnnouncementForm] {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.announcementStep__container {
+  display: flex;
+  flex: 1 1 auto;
+  margin-top: 20px;
+}
+
+.announcementStep__left {
+  display: flex;
+  width: 67%;
+  height: 100%;
+  flex-direction: column;
+}
+
+.announcementStep__leftTitle {
+  font-family: 'Work Sans';
+  font-weight: 600;
+  color: $textColor;
+  font-size: 2.25rem;
+  padding-left: 14px;
+  flex: 1 1 auto;
+}
+
+.announcementStep__leftPictureContainer {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+.announcementStep__leftPicture {
+  width: 50%;
+  margin-left: 100px;
+}
+
+
+.announcementStep__right {
+  display: flex;
+  width: 33%;
+  height: 100%;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.05);
+}
+
+.announcementForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .upload__container {
+    margin-right: 0px;
+    margin-top: 0px;
+  }
+
+  .upload__inputContainer {
+    margin-top: 0px;
+  }
+
+  .upload__container:nth-child(2) {
+    margin-left:20px;
+  }
+}
+
+.announcementForm__control {
+  margin: 20px 0;
+}
+
+.announcementForm__pictureLine {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

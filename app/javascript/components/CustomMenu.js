@@ -97,6 +97,7 @@ class CustomMenu extends React.Component {
               { this.props.isLoggedIn &&
               <li className="menu__navItem menu__navItem--end">
                 <RaisedButton
+                  href="/announcements/new"
                   label="Créer une annonce"
                   primary={true}
                 />

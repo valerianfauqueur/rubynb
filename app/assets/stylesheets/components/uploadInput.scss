@@ -82,12 +82,14 @@
 }
 
 .upload__inputErrors {
-  display: none;
-  margin-top: 10px;
+  opacity: 0;
+  height: 1rem;
+  width: 100%;
+  margin-top: 5px;
   font-size:0.75rem;
   color: rgb(244, 67, 54);
 }
 
 .upload__inputErrors--show {
-  display: block;
+  opacity: 1;
 }

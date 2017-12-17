@@ -1,3 +1,17 @@
-<h1>New Announcement</h1>
-
-<%= render 'form', announcement: @announcement %>
+<div class="edit__page--white">
+  <%= react_component("CustomMenu", {
+      isLoggedIn: user_signed_in?,
+      user: current_user,
+      links: {
+        signup: url_for(new_user_registration_path),
+        login: url_for(new_user_session_path),
+        logout: url_for(destroy_user_session_path),
+        editProfile: url_for(edit_user_registration_path),
+      },
+      profilePictureUrl: user_signed_in? ? current_user.avatar.url('thumb') : '',
+    })
+  %>
+  <%= form_with(model: @announcement, local: true) do |f| %>
+    <%= react_component("AnnouncementForm", {stepPic: [image_path("quel-jeu.png"), image_path("appareil-photo.png"), image_path("personnalize.png")]}) %>
+  <% end %>
+</div>

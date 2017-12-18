@@ -438,7 +438,7 @@ class AnnouncementForm extends React.Component {
                   <MenuItem value={4} primaryText="Passable" />
                 </SelectField>
                 <TextField
-                  hintText="30min à 90min"
+                  hintText="30 à 90"
                   floatingLabelText="Durée d'une partie (en minutes)"
                   type="text"
                   onChange={this.handleGameDuration}

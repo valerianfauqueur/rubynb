@@ -38,8 +38,6 @@ class Announcement < ApplicationRecord
   validates_length_of :availibity, :minimum => 10, :maximum => 5000
   validates :min_reservation, numericality: { only_integer: true, greater_than: 0, less_than: 8 }
   validates :max_reservation, numericality: { only_integer: true, greater_than: :min_reservation, less_than: 366 }
-  validates :game_content, array: { length: { maximum: 20, too_long: 'max 20 characters'}}
-  validates :game_tags, array: { length: { maximum: 20, too_long: 'max 20 characters'}}
 
   monetize :renting_price, :as =>"renting", :numericality => {
     :greater_than_or_equal_to => 1,

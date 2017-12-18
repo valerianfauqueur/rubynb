@@ -26,6 +26,7 @@ class AnnouncementCard extends React.Component {
 
   render () {
     let card = this.props.cardData;
+    console.log(card);
     return (
       <div className="announcement__card" onClick={() => location.replace('/announcements/' + card.id)}>
         <div className="announcement__cardPicture" style={{
@@ -39,7 +40,7 @@ class AnnouncementCard extends React.Component {
           <div className="announcement__rentingPrice">{this.getNormalizedPrice(card.renting_price)} par jour</div>
           <div className="announcement__footer">
             <div className="announcement__rating">
-              <div></div>
+              <div>Hello</div>
             </div>
             <div className="announcement__author">{card.user.first_name} {card.user.last_name.charAt(0)}.</div>
           </div>

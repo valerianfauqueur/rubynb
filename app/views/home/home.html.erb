@@ -19,10 +19,45 @@
         profilePictureUrl: user_signed_in? ? current_user.avatar.url('thumb') : '',
       })
     %>
-      <%= react_component("Home", {
-        categoryTitle: ["Jeux de cartes", "Jeux de plateau", "Jeux de dès", "Jeux en plein air"],
-        categoryImg: [image_path("cartes.svg"), image_path("plateau.svg"), image_path("des.svg"), image_path("plein_air.svg")]
-      }) %>
+    <section class="content">
+      <section class="introduction">
+        <div class="introduction__content">
+          <h2 class="introduction__title">Partajouer</h2>
+          <h3 class="introduction__desc">Réservez le jeu qui occupera votre<br> soirée dès maintenant.</h3>
+          <div class="introduction__search">
+            <input class="introduction__searchInput" type="text" placeholder="Essayez « 1000 bornes »">
+            <input class="introduction__searchBtn" type="button" value="Rechercher">
+          </div>
+        </div>
+      </section>
+
+      <section class="category">
+        <div class="category__header">
+          <h2 class="category__title title">Catégories</h2>
+        </div>
+        <div class="category__cards">
+            <%= react_component("CategoryCard", {categoryTitle:"Jeux de cartes", categoryImg: image_path("cartes.svg"), category: 1}) %>
+            <%= react_component("CategoryCard", {categoryTitle:"Jeux de plateau", categoryImg: image_path("plateau.svg"), category: 2}) %>
+            <%= react_component("CategoryCard", {categoryTitle:"Jeux de dès", categoryImg: image_path("des.svg")}, category: 3) %>
+            <%= react_component("CategoryCard", {categoryTitle:"Jeux en plein air", categoryImg: image_path("plein_air.svg")}, category: 4) %>
+        </div>
+      </section>
+
+      <section class="announcements">
+        <section class="announcements__category">
+          <div class="announcements__categoryHeader">
+            <h2 class="announcements__categoryTitle title">Proche de chez vous</h2>
+          </div>
+          <%= react_component("AnnouncementCardGrid", @announcements) %>
+          <section class="announcements__category">
+            <div class="announcements__categoryHeader">
+              <h2 class="announcements__categoryTitle title">Tendances</h2>
+            </div>
+            <%= react_component("AnnouncementCardGrid") %>
+          </section>
+        </section>
+      </section>
+    </section>
 
     <%= react_component("Footer", {rs: [image_path("facebook.svg"), image_path("twitter.svg"), image_path("instagram.svg"), image_path("youtube.svg")]}) %>
   </body>

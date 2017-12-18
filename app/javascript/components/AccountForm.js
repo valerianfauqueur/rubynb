@@ -195,7 +195,7 @@ class AccountForm extends React.Component {
                 errorText={this.state.formError.first_name}
                 style={{width:'80%'}}
               />
-              <UploadInput title="Ajoutez une image de profil" imageHandler={this.imageHandler} uploadError={this.state.formError.avatar} style={{width: '125px', height:'160px'}} name="avatar"/>
+              <UploadInput title="Ajoutez une image de profil" imageHandler={this.imageHandler} uploadError={this.state.formError.avatar} style={{width: '100px', height:'100px'}} name="avatar"/>
               <RaisedButton
                 className="form__input"
                 label={this.text.sendLabel}

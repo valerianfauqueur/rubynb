@@ -4,42 +4,22 @@ import AnnouncementCard from "./AnnouncementCard";
 import RefreshIndicator from 'material-ui/RefreshIndicator';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import PartajouerTheme from '../PartajouerTheme';
-import * as $ from 'jquery';
 
 class AnnouncementCardGrid extends React.Component {
 
-  state = {
-      category: localStorage.getItem('category'),
-      cardsData: []
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.state.cardsData = this.props.cardsData;
   }
-
-  componentWillMount() {
-    this.getAnnouncementCategory(this.state.category)
-  }
-
-  getAnnouncementCategory(category) {
-    $.ajax({
-      method: "GET",
-      url: `/announcements?category=${category}&sort=-updated_at`,
-      dataType: "json",
-    })
-    .done((data) => {
-      console.log(data);
-      this.setState({cardsData: data})
-    })
-    .fail((err) => {
-      console.log(err);
-    })
-  }
-
 
   render () {
     return (
       <MuiThemeProvider muiTheme={PartajouerTheme}>
         <div class="announcements__categoryContent">
-          {this.state.cardsData.length > 0 && this.state.cardsData.map(function(card, i){
-              return <AnnouncementCard cardData={card} key={i} />;
-          })}
+          {this.props.cardsData.map(function(card, i){
+                  return <AnnouncementCard cardData={card} key={i} />;
+              })}
         </div>
       </MuiThemeProvider>
     )

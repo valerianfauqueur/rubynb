@@ -6,7 +6,7 @@ class AnnouncementsController < ApplicationController
   def index
     announcements = Announcement.all
     if params[:category]
-      announcements = announcements.where(["game_category = ?", params[:category]])
+      announcements = announcements.where(["game_type = ?", params[:category]])
     end
     if params['sort']
       f = params['sort'].split(',').first

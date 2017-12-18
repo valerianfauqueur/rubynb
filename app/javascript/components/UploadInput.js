@@ -42,7 +42,7 @@ class UploadInput extends React.Component {
   render () {
     return (
       <div className="upload__container" style={this.props.style}>
-        {this.props.title && <h2>{this.props.title}</h2>}
+        {this.props.title && <h2 className="upload__title">{this.props.title}</h2>}
         <div className="upload__inputContainer" style={{height: '100%', width: '100%'}}>
           <input onChange={this.handleImageChange} className="upload__input" type="file" name={this.props.name} value={this.state.upload} ref={(input)=> this.myinput = input}></input>
           <svg className={"upload__inputUploadIcon " + (this.state.imageUrl ? 'upload__inputUploadIcon--hide' : '')} width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">

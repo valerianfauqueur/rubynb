@@ -3,13 +3,13 @@ import PropTypes from "prop-types"
 
 class CategoryCard extends React.Component {
 
-  componentWillMount() {
-    localStorage.setItem('category', 1);
+  click() {
+    this.props.clickHandler(this.props.index);
   }
 
   render () {
     return (
-      <div className="category__card" onClick={() => Storage.setItem('category', this.props.category)}>
+      <div className="category__card" data-category={this.props.category} onClick={this.click.bind(this)}>
         <div className="category__cardLeft">
           <img className="category__cardIcon" src={this.props.categoryImg} />
         </div>

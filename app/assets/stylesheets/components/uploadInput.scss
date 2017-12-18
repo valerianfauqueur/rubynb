@@ -5,6 +5,7 @@
   align-items: center;
   font-family: 'Work Sans';
   margin-top: 20px;
+  position: relative;
 }
 
 .upload__inputContainer {
@@ -34,6 +35,13 @@
   &:hover {
     background-color: rgba(0,0,0,0.3);
   }
+}
+
+.upload__title {
+  position: absolute;
+  top: -20px;
+  text-align: center;
+  width: 400px;
 }
 
 .upload__input {

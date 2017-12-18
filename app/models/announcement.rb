@@ -2,8 +2,6 @@ class Announcement < ApplicationRecord
   belongs_to :user
   has_many :pictures, :inverse_of => :announcement, index_errors: true
   accepts_nested_attributes_for :pictures, :allow_destroy => true
-  serialize :game_tags
-  serialize :game_content
 
   validates :game_title,
             :game_type,
@@ -13,8 +11,6 @@ class Announcement < ApplicationRecord
             :game_status,
             :game_min_duration,
             :game_max_duration,
-            :game_content,
-            :game_tags,
             :title,
             :description,
             :availibity,
